@@ -4,6 +4,7 @@
     require_once "App/Model/JenisJasa.php";
     require_once "App/Model/Jasa.php";
     require_once "App/Model/Login.php";
+    require_once "App/Model/Mid.php";
 
     //CONTROLLER
     require_once "App/Controller/Alert.php"; //CLASS PEMBERITAHUAN

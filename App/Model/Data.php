@@ -5,6 +5,7 @@ abstract class Data
     protected static $t_jenisjasa = "jenis_jasa";
     protected static $t_jasa = "jasa";
     protected static $t_selesai = "selesai";
+    protected static $t_mid = "mid";
     
 
 

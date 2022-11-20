@@ -1,7 +1,7 @@
 <h2 class="h2 text-center">
-    Jenis Jasa
+    MID TEST (192110)
 </h2>
-<a href="?page=jenisjasa&c=tambah" class="btn btn-outline-success mb-3">Tambah</a>
+<a href="?page=mid&c=tambah" class="btn btn-outline-success mb-3">Tambah</a>
 <table class="table table-hover table-bordered">
     <thead class="bg-secondary text-white text-center">
         <tr>
@@ -15,11 +15,11 @@
     <tbody>
         <?php
 
-        use App\Model\JenisJasa;
+        use App\Model\Mid;
         use App\Contorller\Fungsi;
 
         $i = 0;
-        $datas = JenisJasa::GetAll($link);
+        $datas = Mid::GetAll($link);
         foreach ($datas as $data) :
             $i++;
         ?>
@@ -30,10 +30,10 @@
                 <td width="15%" class="text-center"><?= $data['diskon'] ?></td>
                 <td width="15%" class="">
                     <center>
-                        <a href="?page=jenisjasa&c=ubah&id=<?= $data['id_jenis'] ?>" class="text-center btn btn-info">
+                        <a href="?page=mid&c=ubah&id=<?= $data['id_mid'] ?>" class="text-center btn btn-info">
                             Edit
                         </a>
-                        <a href="?page=jenisjasa&c=hapus&id=<?= $data['id_jenis'] ?>" class="text-center btn btn-danger">
+                        <a href="?page=mid&c=hapus&id=<?= $data['id_mid'] ?>" class="text-center btn btn-danger">
                             Hapus
                         </a>
                     </center>
