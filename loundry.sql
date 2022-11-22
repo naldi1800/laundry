@@ -67,6 +67,13 @@ CREATE TABLE `jenis_jasa` (
   `diskon` int(11) NOT NULL
 );
 
+CREATE TABLE `mid` (
+  `id_mid` int(11) NOT NULL,
+  `nama_jenis` varchar(50) NOT NULL,
+  `harga` int(25) NOT NULL,
+  `diskon` int(11) NOT NULL
+);
+
 --
 -- Dumping data for table `jenis_jasa`
 --
@@ -75,6 +82,9 @@ INSERT INTO `jenis_jasa` (`id_jenis`, `nama_jenis`, `harga`, `diskon`) VALUES
 (1, 'Satuan', 15000, 0),
 (3, 'New Jasa', 3000, 15);
 
+INSERT INTO `mid` (`id_mid`, `nama_jenis`, `harga`, `diskon`) VALUES
+(1, 'Satuan', 15000, 0),
+(3, 'New Jasa', 3000, 15);
 -- --------------------------------------------------------
 
 --

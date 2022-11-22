@@ -39,6 +39,9 @@
                 <td width="15%" class="text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Diskon <?= $data['diskon'] ?> %"><?= Fungsi::rupiah($bayar) ?> </td>
                 <td width="15%" class="">
                     <center>
+                        <a href="?page=jasa&c=selesai&id=<?= $data['id_jasa'] ?>" class="text-center btn btn-success">
+                            Selesai
+                        </a>
                         <a href="?page=jasa&c=hapus&id=<?= $data['id_jasa'] ?>" class="text-center btn btn-danger">
                             Hapus
                         </a>
