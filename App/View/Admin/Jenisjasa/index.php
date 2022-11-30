@@ -9,6 +9,7 @@
             <th>Nama Jasa</th>
             <th>Harga</th>
             <th>Diskon</th>
+            <th>Lama Pengerjaan</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -25,9 +26,10 @@
         ?>
             <tr>
                 <td width="5%" class="text-center"><?= $i ?></td>
-                <td width="35%" class="text-center"><?= $data['nama_jenis'] ?></td>
-                <td width="25%" class="text-center"><?= Fungsi::rupiah($data['harga']) ?></td>
-                <td width="15%" class="text-center"><?= $data['diskon'] ?></td>
+                <td width="30%" class="text-center"><?= $data['nama_jenis'] ?></td>
+                <td width="20%" class="text-center"><?= Fungsi::rupiah($data['harga']) ?></td>
+                <td width="10%" class="text-center"><?= $data['diskon'] ?></td>
+                <td width="15%" class="text-center"><?= Fungsi::getDayWithHours($data['lama']) ?></td>
                 <td width="15%" class="">
                     <center>
                         <a href="?page=jenisjasa&c=ubah&id=<?= $data['id_jenis'] ?>" class="text-center btn btn-info">

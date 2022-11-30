@@ -5,6 +5,7 @@ use App\Contorller\Alert; //Class Alert
 
 if (isset($_POST['login'])) {
     $cek = Login::Login($link, $_POST['user'], $_POST['pass'], $_POST['level']);
+    var_dump($cek);
     if ($cek != null) {
         $_SESSION['isLogin'] = "Login";
         if ($_POST['level'] == "Admin") {

@@ -33,7 +33,8 @@ class JenisJasa extends Data
         $sql = "UPDATE " . parent::$t_jenisjasa . " SET " .
             "nama_jenis='" . $data['nama_jenis'] .  "', ".
             "harga='" . $data['harga'] .  "', ".
-            "diskon='" . $data['diskon'] .  "' ".
+            "diskon='" . $data['diskon'] .  "', ".
+            "lama='" . $data['lama'] .  "' ".
             " WHERE id_jenis='" . $id . "'";
 
         $query = mysqli_query($link, $sql);
@@ -62,7 +63,8 @@ class JenisJasa extends Data
         $sql = "INSERT INTO " . parent::$t_jenisjasa . " VALUES( null, '"
             . $data['nama_jenis'] . "','"
             . $data['harga'] . "','"
-            . $data['diskon'] . "')";
+            . $data['diskon'] . "','"
+            . $data['lama'] . "')";
         
         // var_dump($sql);
         $query = mysqli_query($link, $sql);

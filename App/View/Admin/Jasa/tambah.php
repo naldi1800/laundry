@@ -13,6 +13,7 @@ if (isset($_POST["tambah"])) {
     <h2 class="h2 text-center mt-3">
         Input New Pesanan
     </h2>
+
     <form class="row g-3 needs-validation p-3" method="post" novalidate>
         <div class="col-md-4">
             <label for="id_jenis" class="form-label">Jenis</label>
@@ -22,7 +23,7 @@ if (isset($_POST["tambah"])) {
                 $jeniss = JenisJasa::GetAll($link);
                 foreach ($jeniss as $jenis) :
                 ?>
-                    <option value="<?= $jenis['id_jenis'] ?>" data-diskon="<?= $jenis['diskon'] ?>" data-harga="<?= $jenis['harga'] ?>">
+                    <option value="<?= $jenis['id_jenis'] ?>" data-diskon="<?= $jenis['diskon'] ?>" data-harga="<?= $jenis['harga'] ?>" data-lama="<?= $jenis['lama'] ?>">
                         <?= $jenis['nama_jenis'] ?>
                     </option>
                 <?php endforeach; ?>
@@ -42,7 +43,12 @@ if (isset($_POST["tambah"])) {
             <label for="diskon" class="form-label">Diskon</label>
             <input type="text" value="0" class="form-control" id="diskon" name="diskon" required readonly>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
+            <label for="berat" class="form-label">Lama Pengerjaan</label>
+            <input type="text" class="form-control" id="lamashow" name="lamashow" value="0" required disabled>
+            <input type="hidden" class="form-control" id="lama" name="lama" value="0" required readonly>
+        </div>
+        <div class="col-md-2">
             <label for="berat" class="form-label">Berat</label>
             <input type="number" class="form-control" onchange="cJml();" id="berat" name="berat" min="1" value="0" required>
             <div class="valid-feedback">
@@ -82,6 +88,21 @@ if (isset($_POST["tambah"])) {
 
         document.getElementById("berat").value = 1;
         document.getElementById("berat").max = e.options[e.selectedIndex].dataset.stok;
+        jam = e.options[e.selectedIndex].dataset.lama;
+        document.getElementById("lama").value = jam;
+        showlama = document.getElementById("lamashow");
+        if(jam >= 24){
+            hari = (jam/24) | 0;
+            jamsisa = jam % 24;
+            if(jamsisa > 0){
+                showlama.value = hari + " hari " + jamsisa + " jam";
+            }
+            else{
+                showlama.value = hari + " hari";
+            }
+        }else{
+            showlama.value = jam + " jam";
+        }
 
         getTotal();
 
@@ -95,7 +116,7 @@ if (isset($_POST["tambah"])) {
         document.getElementById("total").value = document.getElementById("berat").value * document.getElementById("harga").value;
         var diskon = document.getElementById("total").value * (dis / 100);
         document.getElementById("total_bayar").value = document.getElementById("total").value - diskon;
-        
+
     }
 
     (function() {

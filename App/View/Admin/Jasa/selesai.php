@@ -3,7 +3,6 @@
         $data = array(
             "id_jasa"=>$_GET['id'],
             "id_admin"=>$_SESSION['ADMIN'],
-
         );
         \App\Model\Selesai::Insert($link, $data);
     }

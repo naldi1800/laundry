@@ -11,7 +11,7 @@ class Jasa extends Data
 
     public static function GetAll($link)
     {
-        $sql = "SELECT * FROM " . parent::$t_jasa . " as A JOIN " . parent::$t_jenisjasa . " as B ON A.id_jenis=B.id_jenis";
+        $sql = "SELECT * FROM " . parent::$t_jasa . " as A JOIN " . parent::$t_jenisjasa . " as B ON A.id_jenis=B.id_jenis WHERE A.id_jasa NOT IN (SELECT id_jasa from " .parent::$t_selesai .") ORDER BY A.returntime";
         $query = mysqli_query($link, $sql);
         $data = null;
         while ($result = mysqli_fetch_array($query)) {
@@ -42,6 +42,7 @@ class Jasa extends Data
 
     public static function Insert($link, $data)
     {
+        $jam = $data['lama'];
         $sql = "INSERT INTO " . parent::$t_jasa . " VALUES( null, '"
             . $data['id_jenis'] . "','"
             . $_SESSION['ADMIN'] . "','"
@@ -49,7 +50,7 @@ class Jasa extends Data
             . $data['harga'] . "','"
             . $data['diskon'] . "','"
             . $data['berat'] . "','"
-            . $data['ket'] . "', '2022-11-15 01:00:00','2022-11-16 01:00:00')";
+            . $data['ket'] . "', CURRENT_TIMESTAMP , DATE_ADD(NOW() ,  INTERVAL $jam HOUR))";
 
         $query = mysqli_query($link, $sql);
         if ($query) {

@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
                     Please enter at least 3 letters
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="harga" class="form-label">Harga Jesis Jasa</label>
                 <input type="text" class="form-control" value="<?= $data['harga'] ?>" id="harga" name="harga" required>
                 <div class="valid-feedback">
@@ -39,7 +39,7 @@ if (isset($_GET['id'])) {
                     Please enter in the Harga
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label for="diskon" class="form-label">Diskon</label>
                 <input type="number" class="form-control" value="<?= $data['diskon'] ?>" id="diskon" min="0" max="100" name="diskon" required>
                 <div class="valid-feedback">
@@ -47,6 +47,17 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="invalid-feedback">
                     Please enter in the Diskon
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="lama" class="form-label">Lama Pengerjaan (Jam)</label>
+                <input type="number" class="form-control" value="<?= $data['lama'] ?>" id="lama" min="1" name="lama" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter in the Lama Pengerjaan
                 </div>
             </div>
             <div class="col-12">

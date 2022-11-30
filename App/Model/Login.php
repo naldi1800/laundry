@@ -3,6 +3,7 @@
 
 namespace App\Model;
 
+use mysqli;
 
 class Login
 {
@@ -13,6 +14,7 @@ class Login
         
 
         $query = mysqli_query($link, $sql);
+        echo mysqli_error($link);
         return mysqli_fetch_assoc($query);
     }
 }

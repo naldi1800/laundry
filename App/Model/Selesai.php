@@ -46,8 +46,7 @@ class Selesai extends Data
     {
         $sql = "INSERT INTO " . parent::$t_selesai . " VALUES( null, '"
             . $data['id_jasa'] . "','"
-            . $data['id_admin'] . "','"
-            . "2022-11-22 10:00:00" . "')";
+            . $data['id_admin'] . "', CURRENT_TIMESTAMP)";
         
         // var_dump($sql);
         $query = mysqli_query($link, $sql);
